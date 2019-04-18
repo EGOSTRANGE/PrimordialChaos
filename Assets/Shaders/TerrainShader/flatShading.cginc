@@ -11,17 +11,14 @@ struct g2f
 };
 
 void MakeTriangles(inout v2g i[3], half3 trgNormal, half colorFactor, inout TriangleStream<g2f> stream ){
-    float4 wPos_0 = i[0].wPos;
-    float4 wPos_1 = i[1].wPos;
-    float4 wPos_2 = i[2].wPos;
 
     g2f out_0;
     g2f out_1;
     g2f out_2;
 
-    out_0.vertex = UnityWorldToClipPos(wPos_0);
-    out_1.vertex = UnityWorldToClipPos(wPos_1);
-    out_2.vertex = UnityWorldToClipPos(wPos_2);    
+    out_0.vertex = UnityWorldToClipPos(i[0].wPos);
+    out_1.vertex = UnityWorldToClipPos(i[1].wPos);
+    out_2.vertex = UnityWorldToClipPos(i[2].wPos);    
 
     half3 viewDir_0 = normalize(_WorldSpaceCameraPos.xyz-i[0].wPos);
     half3 viewDir_1 = normalize(_WorldSpaceCameraPos.xyz-i[1].wPos);
