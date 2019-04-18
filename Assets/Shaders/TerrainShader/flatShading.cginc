@@ -63,6 +63,8 @@ void geom_flat_fresnel (
         i[1].wPos.xyz += trgNormal*color_1*_BigValue;
         i[2].wPos.xyz += trgNormal*color_2*_BigValue;
 
+        trgNormal = normalize(cross(i[1].wPos - i[0].wPos, i[2].wPos - i[0].wPos));
+
         MakeTriangles(i, trgNormal, 0, stream);
     }
 }

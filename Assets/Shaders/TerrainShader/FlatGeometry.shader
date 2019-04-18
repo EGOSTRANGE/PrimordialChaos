@@ -4,14 +4,14 @@ Shader "Unlit/FlatGeometry"
 {
     Properties
     {
-        _OffsetTex("OffsetTexture", 2D) = "black" {}
-        _AnimationSpeed("Speed",Float) = 1
-        _TerrainTypeMap("TerrainType", 2D) = "white" {}
-        _Height("Height",Float) = 15
-        _WaterClip("WaterClip",Float)=.5
-        _NoiseMap("NoiseMap",2D)="white"{}
-        _SuperHeightMap("SuperHeightMap", 2D) = "bump" {}
-        _BigValue("BigValue", Float) = 0.1
+        _OffsetTex("Persistent Displace", 2D) = "black" {}
+        _Height("Persistent Displace Height",Float) = 15
+        _WaterClip("Terrain Type Clip Value",Float)=.5
+        _SuperHeightMap("Futile Displace", 2D) = "bump" {}
+        _BigValue("Futile Displace Height", Float) = 0.1
+        _TerrainTypeMap("Terrain Type Map", 2D) = "white" {}
+        _NoiseMap("Sea Waves map",2D)="white"{}
+        _AnimationSpeed("Sea animation speed",Float) = 1
     }
     SubShader
     {

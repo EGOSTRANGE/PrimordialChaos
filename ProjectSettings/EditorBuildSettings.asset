@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Brushes.unity
     guid: 9f51ba2d4a1849546a75e57d4a5a041e
   m_configObjects: {}

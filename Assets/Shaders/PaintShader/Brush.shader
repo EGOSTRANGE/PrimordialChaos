@@ -4,6 +4,8 @@
     {
         _Coordinate("Coordinate", Vector) = (0, 0, 0, 0)
         _Color("Color", Color) = (0, 0, 0, 0)
+        _Radius("Radius", Range(0,0.1)) = 0.025
+        _Softness("Softness", Range(0,1)) = 0.5
         _MainTex("Main Texture", 2D) = "white" {}
     }
     
@@ -35,6 +37,8 @@
             float4 _Coordinate;
             float4 _Color;
             sampler2D _MainTex;
+            float _Radius;
+            float _Softness;
             
             v2f vert (appdata v)
             {
@@ -46,10 +50,13 @@
 
             fixed4 frag (v2f i) : SV_Target
             {
+                half d = distance(_Coordinate, i.uv);
+                half sum = saturate((d-_Radius) / -_Softness);
                 fixed4 col = tex2D(_MainTex, i.uv);
-                float draw = pow(saturate(1-distance(i.uv, _Coordinate.xy)), 50);
-                fixed4 drawCol = _Color * draw;
-                return saturate(col+drawCol);
+//                float draw = pow(saturate(1-distance(i.uv, _Coordinate.xy)), 5);
+                
+                fixed4 drawCol = _Color * sum;
+                return saturate(col+drawCol*0.1f);
             }
             ENDCG
         }

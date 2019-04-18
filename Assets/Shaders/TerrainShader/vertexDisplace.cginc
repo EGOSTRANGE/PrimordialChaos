@@ -43,7 +43,7 @@ v2g vert_disp(appdata v){
         wPos.y=0;
         half4 noiseSample = tex2Dlod(_NoiseMap, half4(TRANSFORM_TEX(v.uv, _NoiseMap)+_Time.x*_AnimationSpeed,1,1));
         half4 noiseSample_1 = tex2Dlod(_NoiseMap, half4(TRANSFORM_TEX(v.uv, _NoiseMap)*3+_Time.x*_AnimationSpeed*2,1,1));
-        wPos.y += noiseSample.r*0.5+noiseSample_1.r*0.15;
+        wPos.y += noiseSample.r*1.25+noiseSample_1.r*0.5;
         o.color = 0;
     }
     else{
